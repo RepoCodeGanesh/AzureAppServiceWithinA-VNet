@@ -1,0 +1,14 @@
+provider "azurerm" {
+  features {}
+}
+
+module "app_service" {
+  source            = "./modules/app_service"
+  app_service_name  = "my-app-service"
+  location          = "East US"
+  app_service_plan_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Web/serverfarms/my-app-service-plan"
+}
+
+module "vnet" {
+  // Define VNet configuration here
+}
